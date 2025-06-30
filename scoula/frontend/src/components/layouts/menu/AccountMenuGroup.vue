@@ -1,14 +1,17 @@
 <script setup>
-import { computed } from 'vue';
-import MenuItem from './MenuItem.vue';
-import AccountMenuItem from './AccountMenuItem.vue';
-import LogoutMenuItem from './LogoutMenuItem.vue';
-import config from '@/config';
+import { computed } from "vue";
+import MenuItem from "./MenuItem.vue";
+import AccountMenuItem from "./AccountMenuItem.vue";
+import LogoutMenuItem from "./LogoutMenuItem.vue";
+import config from "@/config";
 
 const { login, join } = config.accoutMenus;
+import { useAuthStore } from "@/stores/auth.js";
 
-const islogin = computed(() => false);
-const username = computed(() => '');
+const auth = useAuthStore();
+
+const islogin = computed(() => auth.isLogin);
+const username = computed(() => auth.username);
 </script>
 
 <template>
