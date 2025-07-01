@@ -20,7 +20,7 @@ public class MemberDTO {
     private Date regDate;
     private Date updateDate;
 
-    private MultipartFile avaar;
+    private MultipartFile avatar;
 
     private List<String> authList;
 
