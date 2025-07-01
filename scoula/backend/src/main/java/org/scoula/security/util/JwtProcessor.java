@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Component
 public class JwtProcessor {
-    static private final long TOKEN_VALID_MILESECOND = 1000L * 60 * 5;
+    static private final long TOKEN_VALID_MILESECOND = 1000L * 60 * 35;
 
     private String secretKey = "충분히 긴 임의의(랜덤한) 비밀키 문자열 배정";
     private Key key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));

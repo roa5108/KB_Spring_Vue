@@ -67,6 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                         .antMatchers(HttpMethod.OPTIONS).permitAll()
+                        .antMatchers(HttpMethod.POST,"/api/member").authenticated()
+                        .antMatchers(HttpMethod.PUT,"/api/member", "/api/member/*/changepassword").authenticated()
                         .anyRequest().permitAll();
 
 
@@ -121,7 +123,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/assets/**","/*","/api/member/**",
+        web.ignoring().antMatchers("/assets/**","/*",
                 "/swagger-ui.html","/webjars/**","swagger-resources/**","/v2/api-docs");
     }
 }
