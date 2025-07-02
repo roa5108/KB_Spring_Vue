@@ -56,7 +56,16 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public BoardDTO update(BoardDTO board) {
         log.info("update...." + board);
-        mapper.update(board.toVO());
+        BoardVO boardVO = board.toVO();
+        log.info("update...." + boardVO);
+
+        mapper.update(boardVO);
+
+        List<MultipartFile> files = board.getFiles();
+        if(files != null && !files.isEmpty()) {
+            upload(boardVO.getNo(),files);
+        }
+
         return get(board.getNo());
     }
 
