@@ -48,7 +48,7 @@ export default {
         formData.append("files", article.files[i]);
       }
     }
-    const { data } = await api.put(`${BASE_URL}/${article.no}`, article, {
+    const { data } = await api.put(`${BASE_URL}/${article.no}`, formData, {
       headers,
     });
     console.log("BOARD PUT: ", data);
